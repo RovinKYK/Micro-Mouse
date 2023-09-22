@@ -1,42 +1,29 @@
-# Micro Mouse Simulation and Implementation
+# Micro Mouse Robot
 
-## TODO
- 
- 
-### Algorithm
+## Overview
 
-- [x] Basic flood fill algorithm
-- [x] Basic wall sensing and movements
-- [ ] Add rotation movement
-- [ ] Add support to arbitrary start location - Currently assumes mouse starts at lower left - corner. The Mouse needs move until enough information is available to determine to location of - the center square
-- [ ] Add detection of four center squares
-- [ ] Find (or modify) and existing code to visualize movements
-- [ ] Find (or modify) and existing code to draw mazes
-- [ ] Implement search run back to start square. Ideally mapping most of the maze
-- [ ] Implement fast run (using the finalized flood fill values)
-- [ ] Optimize flood fill algorithm to reduce search time (dang2010)
-- [ ] Implement oblique sprint algorithm (yuan2018)
+This repository contains the code and resources for a Micro Mouse robot designed for maze navigation using Raspberry Pi. The robot is equipped with Time-of-Flight (ToF) sensors, a QMC5883L compass, rotary encoders, and an L298N motor driver for precise control and navigation.
 
-#### Maze visualizer
+## Features
 
-Maze files https://github.com/micromouseonline/micromouse_maze_tool
-mms simulator https://github.com/mackorone/mms
+- **ToF Sensors**: Utilizes Time-of-Flight sensors for accurate distance measurements.
+- **QMC5883L Compass**: Incorporates a digital compass for orientation and heading control.
+- **Rotary Encoders**: Employs encoders for precise motor control and odometry.
+- **Raspberry Pi**: Powered by a Raspberry Pi for high-level processing and control.
+- **Flood Fill Algorithm**: Utilizes a flood fill algorithm for efficient maze exploration.
 
-- [ ] Convert maze files current implementation
-- [ ] Convert current implementation to match format given in mms simulator
+## Capabilities
 
-### Interface
+The Micro Mouse robot showcases the following capabilities:
 
-- [ ] PWM
-- [ ] PID
-- [ ] Get sensor readings (ToF, JVP)
-- [ ] Implement wall detection
-- [ ] Rotations (90-V, 90-T, 45-T, etc)
-- [ ] Implement simulation code
-- [ ] ...
+1. **Maze Navigation**: The robot efficiently navigates through mazes using a combination of ToF sensors, compass, and encoders for obstacle detection and path planning.
 
-### Hardware
+2. **Mapping and Localization**: It employs the QMC5883L compass and encoders for mapping the maze layout and localizing itself within the maze.
 
-- [ ] Finish prototype
-- [ ] Testing, testing, and more testing
-- [ ] ...
+3. **Dynamic Path Planning**: The flood fill algorithm dynamically plans the optimal path through the maze, adapting to changing conditions or maze layouts.
+
+4. **Real-time Feedback**: The Raspberry Pi provides real-time feedback on sensor data, allowing for on-the-fly adjustments and decision-making.
+
+## Flood Fill Algorithm
+
+The flood fill algorithm is a pathfinding algorithm used to efficiently explore and map a maze. It works by iteratively assigning values to each cell in the maze, representing the number of steps required to reach the goal from that cell. This allows the robot to make informed decisions on which paths to take.
